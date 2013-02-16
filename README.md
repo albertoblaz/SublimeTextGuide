@@ -67,7 +67,11 @@ Copy the content of the file user-settings.json into the ~/.config/sublime-text-
 
 ## Collaborators
 
-Alberto Blázquez (@albertoblaz)
+- Alberto Blázquez ([web](http://albertoblazquez.net))
+- Carlos David Rodríguez
+- Sonia Martínez
+- Salvador Pérez
+- Guillem Andreu ([web](http://guillemandreu.com/en/))
 
 
 Thanks guys, I hope you like it... :)
