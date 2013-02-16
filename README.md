@@ -1,12 +1,19 @@
 # Being Productive with Sublime Text 2
 
-This is an open repository made with the intention of improve and enhance the capabilities and features offered by Sublime Text 2 in a collaboratively way.
+This is an open repository made with the intention of improve and enhance the capabilities and features offered by Sublime Text 2 in a collaborative way.
+
+
+## Installation
+
+### Download from the authors website
+
+### Use our custom shell-script
 
 
 
 ## Plugins
 
-Sublime is a great editor by itself. But then, suddenly you realize that need other tools in your day-by-day. Therefore, here we are pleased to offer you a list of recommended plugins (or add-ons) which enhance Sublime so much!
+Sublime is a great editor by itself. But then, suddenly you realize you need other tools in your day-by-day. Therefore, here we are pleased to offer you a list of recommended plugins (or add-ons) which enhance Sublime so much!
 
 Don't you believe me? Give them a try!!
 
@@ -92,6 +99,8 @@ Copy the content of the file user-settings.json into the ~/.config/sublime-text-
 - Sonia Martínez
 - Salvador Pérez
 - Guillem Andreu ([web](http://guillemandreu.com/en/))
+- David Barriga
+- Fernando Godino
 
 
 Thanks guys, I hope you like it... :)
