@@ -15,8 +15,11 @@ This script will install the program sublime-text-2
 
 OPTIONS:
    -h      Show this message
-   -d      Install development version
    -v      Verbose
+   -d      Install development version
+   -c      Install Package Control
+   -u      Uninstall
+   -p      Install the plugin set
 
 EOF
 }
@@ -52,6 +55,11 @@ function install () {
     fi
 }
 
+# Uninstall function
+function uninstall () {
+    echo "TODO uninstall"
+}
+
 ###############################################################################
 
 ###############################################################################
@@ -65,7 +73,7 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 # Check optional parameters
-while getopts "hvd" OPTION; do
+while getopts "hvdcup:" OPTION; do
     case $OPTION in
         h)
             usage
@@ -76,6 +84,16 @@ while getopts "hvd" OPTION; do
             ;;
         d)
             DEV=1
+            ;;
+        c)
+            PC=1
+            ;;
+        u)
+            uninstall
+            exit 0
+            ;;
+        p)
+            PLUGINS=1
             ;;
         ?)
             echo "Invalid option: -$OPTION" >&2
