@@ -1,7 +1,14 @@
 #!/bin/bash
 
+# Author: Carlos David Rodríguez Peña (Garinoth)
+# GitHub: https://github.com/Garinoth
+
+###############################################################################
+### FUNCTIONS #################################################################
+###############################################################################
+
 # Help function
-usage() {
+function usage () {
 cat << EOF
 
 This script will install the program sublime-text-2
@@ -14,12 +21,48 @@ OPTIONS:
 EOF
 }
 
+
 # Log function. Only works if the verbose option is selected
 function log () {
     if [[ $VERBOSE -eq 1 ]]; then
         echo "$@"
     fi
 }
+
+# Function that executes the given code checking the verbose option
+function execute () {
+    printf "$2..."
+    if [[ $VERBOSE -eq 1 ]]; then
+        $1
+    else
+        $1 &> /dev/null
+    fi
+    printf "Done\n"
+}
+
+
+# Apt-get Installation function. Adds the repository and installs either the 
+# stable or development version
+function install () {
+    execute "add-apt-repository -y ppa:webupd8team/sublime-text-2" "Adding repository"
+    execute "apt-get update" "Updating Libraries"
+
+    if [[ $DEV -eq 1 ]]; then
+        echo
+    fi
+}
+
+###############################################################################
+
+###############################################################################
+### MAIN EXECUTION ############################################################
+###############################################################################
+
+# Check root permission
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "Error: This script must be run as root"
+    exit 1
+fi
 
 # Check optional parameters
 while getopts "hvd" OPTION; do
@@ -46,7 +89,7 @@ while getopts "hvd" OPTION; do
     esac
 done
 
-log "Alberto es tontooooooooooo"
+install
 
 #file=$(zenity --list --width=360 --height=320 --title "Lanzador" \
 #    --column="a" --column="Acciones" --checklist \
