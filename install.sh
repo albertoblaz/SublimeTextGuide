@@ -4,6 +4,14 @@
 # GitHub: https://github.com/Garinoth
 
 ###############################################################################
+### GLOBAL VARIABLES ##########################################################
+###############################################################################
+
+
+
+###############################################################################
+
+###############################################################################
 ### FUNCTIONS #################################################################
 ###############################################################################
 
@@ -17,8 +25,9 @@ OPTIONS:
    -h      Show this message
    -v      Verbose
    -d      Install development version
-   -c      Install Package Control
    -u      Uninstall
+   -r      Reinstall
+   -c      Install Package Control
    -p      Install the plugin set
 
 EOF
@@ -34,11 +43,11 @@ function log () {
 
 # Function that executes the given code checking the verbose option
 function execute () {
-    printf "$2..."
+    printf "$2... "
     if [[ $VERBOSE -eq 1 ]]; then
-        $1
+        eval $1
     else
-        $1 &> /dev/null
+        eval $1 &> /dev/null
     fi
     printf "Done\n"
 }
@@ -50,14 +59,29 @@ function install () {
     execute "add-apt-repository -y ppa:webupd8team/sublime-text-2" "Adding repository"
     execute "apt-get update" "Updating Libraries"
 
+    if [[ $REINSTALL -eq 1 ]]; then
+        uninstall
+    fi
+
     if [[ $DEV -eq 1 ]]; then
-        echo
+        execute "apt-get install sublime-text-dev" "Installing sublime-text-2 development version"
+    else
+        execute "apt-get install sublime-text" "Installing sublime-text-2"
+    fi
+
+    if [[ $PC -eq 1 ]]; then
+        execute "sudo -u $SUDO_USER wget -N -P $HOME/.config/sublime-text-2/Installed\ Packages http://sublime.wbond.net/Package%20Control.sublime-package" "Downloading Package Control"
+    fi
+
+    if [[ $PLUGINS -eq 1 ]]; then
+        echo "TODO Install plugins"
     fi
 }
 
 # Uninstall function
 function uninstall () {
-    echo "TODO uninstall"
+    execute "apt-get -y remove sublime-text*" "Uninstalling sublime-text-2"
+    execute "rm -r $HOME/.config/sublime-text-2" "Removing config, plugins, etc"
 }
 
 ###############################################################################
@@ -66,14 +90,8 @@ function uninstall () {
 ### MAIN EXECUTION ############################################################
 ###############################################################################
 
-# Check root permission
-if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-    echo "Error: This script must be run as root"
-    exit 1
-fi
-
 # Check optional parameters
-while getopts "hvdcup:" OPTION; do
+while getopts "hvdurcp:" OPTION; do
     case $OPTION in
         h)
             usage
@@ -85,12 +103,14 @@ while getopts "hvdcup:" OPTION; do
         d)
             DEV=1
             ;;
+        u)
+            UNINSTALL=1
+            ;;
+        r)
+            REINSTALL=1
+            ;;  
         c)
             PC=1
-            ;;
-        u)
-            uninstall
-            exit 0
             ;;
         p)
             PLUGINS=1
@@ -107,28 +127,14 @@ while getopts "hvdcup:" OPTION; do
     esac
 done
 
-install
+# Check root permission
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "Error: This script must be run as root"
+    exit 1
+fi
 
-#file=$(zenity --list --width=360 --height=320 --title "Lanzador" \
-#    --column="a" --column="Acciones" --checklist \
-#    FALSE "Abrir Gedit" \
-#    FALSE "Abrir carpeta Música" \
-#    TRUE "Ir a LinuxZone")
-
-#echo $file
-
-# Add the repository and update
-#add-apt-repository ppa:webupd8team/sublime-text-2
-#apt-get update
-
-# Messy fast way of purging the repository before install
-#sudo apt-get remove sublime-text*
-
-# Install sublime-text-2
-#apt-get install sublime-text
-
-# Optionally install the development package
-#apt-get install sublime-text-dev
-
-# Package control
-# http://sublime.wbond.net/Package%20Control.sublime-package
+if [[ $UNINSTALL -eq 1 ]]; then
+    uninstall
+else
+    install
+fi
