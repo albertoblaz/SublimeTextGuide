@@ -27,7 +27,7 @@ This is a selection of some packages I have used while I was developing with Sub
 - [CSSLint](https://github.com/austinhappel/sublime-csslint)
 - [CSSComb](https://github.com/miripiruni/CSScomb-for-Sublime)
 - [CSS Snippets](https://github.com/joshnh/CSS-Snippets)
-- [Emmet (previously named 'Zen Coding')](https://github.com/sergeche/emmet-sublime)
+- [Emmet](https://github.com/sergeche/emmet-sublime) (previously named 'Zen Coding')
 - [Git](https://github.com/kemayo/sublime-text-2-git)
 - [HTML5](https://github.com/mrmartineau/HTML5)
 - [HTML5 Attributes](https://github.com/agibsonsw/HTMLAttributes)
