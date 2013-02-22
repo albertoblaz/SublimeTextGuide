@@ -12,7 +12,7 @@ We have developed a script that works 100% on Linux. It adds Sublime in the list
 
 In case you prefer the traditional way, here are the steps you must follow:
 
-   1. You may download the program from [the official Sublime website][1] as well.
+   1. You may download the program from [the official Sublime website](http://sublimetext.com/download) as well.
    2. Now, open the editor and do *Ctrl+`* to show the internal console
    3. Then, copy and paste the next code into the console:
 
@@ -27,5 +27,3 @@ In case you prefer the traditional way, here are the steps you must follow:
   ```
 
    4. Restart Sublime to check out the changes
-
-[1]: http://sublimetext.com/download
