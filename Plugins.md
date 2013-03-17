@@ -42,6 +42,7 @@ This is a selection of some packages I have used while I was developing with Sub
 - [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter)
 - [SublimeREPL](https://github.com/wuub/SublimeREPL)
 - [SublimeTODO](https://github.com/robcowie/SublimeTODO)
+- [WebInspector](https://github.com/sokolovstas/SublimeWebInspector)
 
 
 Also, you may find another suitable plugins for you in [this website][2]
