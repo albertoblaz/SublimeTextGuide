@@ -64,9 +64,9 @@ function install () {
     fi
 
     if [[ $DEV -eq 1 ]]; then
-        execute "apt-get install sublime-text-dev" "Installing sublime-text-2 development version"
+        execute "apt-get -y install sublime-text-dev" "Installing sublime-text-2 development version"
     else
-        execute "apt-get install sublime-text" "Installing sublime-text-2"
+        execute "apt-get -y install sublime-text" "Installing sublime-text-2"
     fi
 
     if [[ $PC -eq 1 ]]; then
