@@ -19,7 +19,7 @@
 		"*.tif",
 		"*.tiff"
 	],
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/User/base16-eighties.dark (SL).tmTheme",
 	"detect_slow_plugins": false,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
@@ -47,7 +47,17 @@
 		".gitkeep",
 		"*project",
 		"*workspace",
-		"*codekit*"
+		"*codekit*",
+		"*.aux",
+		"*.log",
+		"*.out",
+		"*.synctex.gz",
+		"*latexmk",
+		"*.pdf",
+		"*.blg",
+		"*.bbl",
+		"*.lof",
+		"*.toc"
 	],
 	"folder_exclude_patterns":
 	[
@@ -74,6 +84,7 @@
 	"line_padding_bottom": 2,
 	"save_on_focus_lost": true,
 	"tab_size": 4,
+	"theme": "Spacegray Eighties.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
