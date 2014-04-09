@@ -59,6 +59,7 @@
 		"*.blg",
 		"*.bbl",
 		"*.lof",
+		"*.lot",
 		"*.toc"
 	],
 	"folder_exclude_patterns":
@@ -76,7 +77,6 @@
 		"psd-ai",
 		"ai-psd"
 	],
-	"font_face": "Inconsolata",
 	"font_size": 10,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -85,7 +85,6 @@
 		"Vintage"
 	],
 	"line_padding_bottom": 2,
-	"line_padding_top": 1,
 	"save_on_focus_lost": true,
 	"tab_size": 4,
 	"theme": "Spacegray Eighties.sublime-theme",
